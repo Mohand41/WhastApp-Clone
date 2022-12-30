@@ -1,24 +1,17 @@
-import React, { useEffect } from 'react';
+
 import './App.css';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
 import Login from './Login';
 import {useStateValue} from './StateProvider';
 import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
-import { auth } from './firebase';
+
 
 
 function App() {
-  const [{user},dispatch] = useStateValue();
+  const [{user},] = useStateValue();
 
-  useEffect(()=>{
-    auth.onAuthStateChanged(user=>{
-      dispatch({
-        type:"SET_USER",
-        user:user
-      })
-    })
-  },[])
+  
   return (
     <div className='app'>
     {!user ? (
